@@ -5,6 +5,8 @@
  */
 package FruitManagement;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -16,7 +18,25 @@ import java.util.Scanner;
  */
 public class GettingData {
 
-    Scanner sc = new Scanner(System.in);
+    public Scanner sc = new Scanner(System.in);
+
+    public GettingData() {
+        sc = new Scanner(System.in);
+    }
+
+    public String getInput() {
+        sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+
+    public int start() {
+        sc = new Scanner(System.in);
+        System.out.println("Enter number 1");
+        int x = sc.nextInt();
+        System.out.println("Enter number 2");
+        int y = sc.nextInt();
+        return x+y;
+    }
 
     //allow user to input selection
     public int getChoice() {
@@ -57,9 +77,8 @@ public class GettingData {
 
     //let user in put fruit origin
     public String getFruitOrigin() {
-        String origin, choiceOrigin = "";
         System.out.println("Input origin: ");
-        origin = getString();
+        String origin = getString();
         return origin;
     }
 
@@ -102,8 +121,7 @@ public class GettingData {
     //let user input name
     public String getCustomerName() {
         System.out.println("Input your name: ");
-        String name = getString();
-        return name;
+        return getString();
     }
 
     //check valid string
@@ -187,7 +205,7 @@ public class GettingData {
         }
         return string + spaceHaveLeft;
     }
-    
+
     //center align string in a given space
     public String getCenterAlignString(int space, String string) {
         String leftSpace = "";
@@ -224,7 +242,7 @@ public class GettingData {
             }
         }
     }
-    
+
     //check if there is a dublicate id in the list
     public boolean checkDublicateID(List<Fruit> list, String id) {
         //check all the condition of the list
